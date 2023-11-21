@@ -1,7 +1,7 @@
 package com.laptrinhjavaweb.dao.impl;
 
-import com.laptrinhjavaweb.dao.INewDao;
+import com.laptrinhjavaweb.dao.INewDAO;
 
-public class NewDao implements INewDao {
+public class NewDAO implements INewDAO {
 
 }

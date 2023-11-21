@@ -4,4 +4,9 @@
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.model.UserModel"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.model.AbstractModel"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.INewDao"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.service.INewService"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.ICategoryDAO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.model.CategoryModel"/>
 </qualifiedTypeNameHistroy>

@@ -1,5 +1,5 @@
 package com.laptrinhjavaweb.dao;
 
-public interface INewDao {
+public interface INewDAO {
 
 }

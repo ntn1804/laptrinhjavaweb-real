@@ -2,3 +2,10 @@
 1700549203922	Rename package 'com.laptrinhjavaweb.dao.implement'
 1700549435326	Delete element
 1700549452830	Delete element
+1700555007771	Rename type 'Category'
+1700555013904	Rename type 'Comment'
+1700555023788	Rename type 'News'
+1700561403831	Rename type 'INewDao'
+1700561409728	Rename type 'NewDao'
+1700561421743	Copy compilation unit
+1700561468184	Rename type 'NewCategoryDAO'
