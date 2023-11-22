@@ -9,3 +9,8 @@
 1700561409728	Rename type 'NewDao'
 1700561421743	Copy compilation unit
 1700561468184	Rename type 'NewCategoryDAO'
+1700627572494	Delete element
+1700642794236	Rename type 'INewDAO'
+1700642807613	Rename type 'NewDAO'
+1700643043747	Rename type 'INewService'
+1700643049772	Rename type 'NewService'

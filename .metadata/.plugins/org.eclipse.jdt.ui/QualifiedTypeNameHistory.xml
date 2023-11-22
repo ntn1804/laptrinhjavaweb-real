@@ -6,7 +6,22 @@
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.model.AbstractModel"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.INewDao"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.service.INewService"/>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.ICategoryDAO"/>
-<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.mysql.cj.jdbc.Driver"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.model.CategoryModel"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.impl.CategoryDAO"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.ICategoryDAO"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.service.ICategoryService"/>
+<fullyQualifiedTypeName name="java.lang.Long"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.impl.NewsDAO"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.model.NewsModel"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.INewsDAO"/>
+<fullyQualifiedTypeName name="javax.inject.Inject"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.service.INewsService"/>
 </qualifiedTypeNameHistroy>
