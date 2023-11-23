@@ -1,0 +1,8 @@
+127.0.0.1 - - [23/Nov/2023:11:40:54 +0700] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [23/Nov/2023:11:40:55 +0700] "GET /new-jdbc/ HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Nov/2023:11:41:24 +0700] "GET /new-jdbc/trang-chu;jsessionid=44D8F89DD13C25EA16D2502C0CED739A HTTP/1.1" 200 8821
+0:0:0:0:0:0:0:1 - - [23/Nov/2023:11:41:24 +0700] "GET /new-jdbc/template/web/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Nov/2023:11:41:24 +0700] "GET /new-jdbc/template/web/css/style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Nov/2023:11:41:24 +0700] "GET /new-jdbc/template/web/jquery/jquery.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Nov/2023:11:41:24 +0700] "GET /new-jdbc/template/web/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Nov/2023:11:41:25 +0700] "GET /favicon.ico HTTP/1.1" 404 1085

@@ -1,63 +1,62 @@
 package com.laptrinhjavaweb.dao.impl;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.Statement;
 import java.util.List;
 
 import com.laptrinhjavaweb.dao.INewsDAO;
+import com.laptrinhjavaweb.mapper.NewsMapper;
 import com.laptrinhjavaweb.model.NewsModel;
 
-public class NewsDAO implements INewsDAO {
-
-	public Connection getConnection() {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/new_servlet";
-			String user = "root";
-			String password = "Zxcqwe098570";
-			return DriverManager.getConnection(url, user, password);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
+public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 
 	@Override
 	public List<NewsModel> findByCategoryID(Long categoryId) {
-		List<NewsModel> results = new ArrayList<>();
 		String sql = "SELECT * FROM news WHERE categoryid = ?";
-		PreparedStatement statement = null;
-		ResultSet resultSet = null;
-		// Open connection
-		Connection connection = getConnection();
-		if (connection != null) {
-			try {
-				statement = connection.prepareStatement(sql);
-				statement.setLong(1, categoryId);
-				resultSet = statement.executeQuery();
-				while (resultSet.next()) {
-					NewsModel news = new NewsModel();
-					news.setId(resultSet.getLong("id"));
-					news.setTitle(resultSet.getString("title"));
-					results.add(news);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					resultSet.close();
-					statement.close();
-					connection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return results;
+		return query(sql, new NewsMapper(), categoryId);
 	}
 
+	@Override
+	public Long save(NewsModel newsModel) {
+		ResultSet resultSet = null;
+		Long id = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+			String sql = "INSERT INTO news (title, content, categoryid) VALUES(?, ?, ?)";
+			connection = getConnection();
+			connection.setAutoCommit(false);
+			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			statement.setString(1, newsModel.getTitle());
+			statement.setString(2, newsModel.getContent());
+			statement.setLong(3, newsModel.getCategoryId());
+			statement.executeUpdate();
+			resultSet = statement.getGeneratedKeys();
+			if (resultSet.next()) {
+				return id = resultSet.getLong(1);
+			}
+			connection.commit();
+			return id;
+		} catch (SQLException e) {
+			if (connection != null) {
+				try {
+					connection.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+			return null;
+		} finally {
+			try {
+				resultSet.close();
+				statement.close();
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

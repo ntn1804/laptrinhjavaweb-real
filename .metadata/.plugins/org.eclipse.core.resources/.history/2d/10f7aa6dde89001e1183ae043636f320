@@ -1,0 +1,36 @@
+package com.laptrinhjavaweb.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.laptrinhjavaweb.dao.INewsDAO;
+import com.laptrinhjavaweb.mapper.NewsMapper;
+import com.laptrinhjavaweb.model.NewsModel;
+
+public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
+
+	@Override
+	public List<NewsModel> findByCategoryID(Long categoryId) {
+		String sql = "SELECT * FROM news WHERE categoryid = ?";
+		return query(sql, new NewsMapper(), categoryId);
+	}
+
+	@Override
+	public Long save(NewsModel newsModel) {
+		try {
+			String sql = "INSERT INTO news (title, content, categoryid) VALUES(?, ?, ?)";
+			Connection connection = getConnection();
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, newsModel.getTitle());
+			statement.setString(2, newsModel.getContent());
+			statement.setLong(3, newsModel.getCategoryId());
+			statement.executeUpdate();
+			return null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+}
