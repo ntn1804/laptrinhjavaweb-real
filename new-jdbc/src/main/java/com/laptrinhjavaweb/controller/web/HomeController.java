@@ -28,8 +28,8 @@ public class HomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String title = "bài viết 4";
-		String content = "zxc";
-		Long categoryId = 1L;
+		String content = "asd";
+		Long categoryId = 2L;
 		NewsModel newsModel = new NewsModel();
 		newsModel.setTitle(title);
 		newsModel.setContent(content);
