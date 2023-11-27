@@ -20,9 +20,17 @@ public class NewsService implements INewsService {
 
 	@Override
 	public NewsModel save(NewsModel newsModel) {
-		Long newsID = newsDao.save(newsModel);
-		System.out.println(newsID);
-		return null;
+		Long newId = newsDao.save(newsModel);
+		return newsDao.findOne(newId);
+	}
+
+	@Override
+	public NewsModel update(NewsModel updateNews) {
+		NewsModel oldNews = newsDao.findOne(updateNews.getId());
+		updateNews.setCreatedBy(oldNews.getCreatedBy());
+		updateNews.setCreatedDate(oldNews.getCreatedDate());
+		newsDao.update(updateNews);
+		return newsDao.findOne(updateNews.getId());
 	}
 
 }

@@ -12,17 +12,13 @@
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.service.ICategoryService"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.impl.NewsDAO"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.INewsDAO"/>
-<fullyQualifiedTypeName name="javax.inject.Inject"/>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.service.INewsService"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.GenericDAO"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.dao.impl.AbstractDAO"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.model.CategoryModel"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.mapper.RowMapper"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.mapper.CategoryMapper"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.mapper.NewsMapper"/>
 <fullyQualifiedTypeName name="javax.enterprise.inject.New"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
@@ -33,6 +29,18 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.model.NewsModel"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpUtils"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.utils.HttpUtil"/>
+<fullyQualifiedTypeName name="javax.inject.Inject"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.service.INewsService"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.mapper.NewsMapper"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.model.NewsModel"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.sql.Types"/>
 </qualifiedTypeNameHistroy>

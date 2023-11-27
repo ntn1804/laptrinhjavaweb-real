@@ -13,6 +13,8 @@ public class NewsMapper implements RowMapper<NewsModel> {
 			NewsModel news = new NewsModel();
 			news.setId(resultSet.getLong("id"));
 			news.setTitle(resultSet.getString("title"));
+			news.setContent(resultSet.getString("content"));
+			news.setCategoryId(resultSet.getLong("categoryId"));
 			return news;
 		} catch (SQLException e) {
 			e.printStackTrace();
