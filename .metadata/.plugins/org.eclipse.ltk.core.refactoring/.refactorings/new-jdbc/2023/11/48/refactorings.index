@@ -1,1 +1,12 @@
 1701138910070	Encapsulate field 'ids'
+1701224384779	Copy compilation unit
+1701224755876	Delete element
+1701239928830	Rename type 'NewController'
+1701240061877	Rename resource 'new'
+1701241787545	Encapsulate field 'listResult'
+1701248864620	Encapsulate field 'page'
+1701248868716	Encapsulate field 'visiblePage'
+1701248872451	Encapsulate field 'totalPage'
+1701249696816	Encapsulate field 'page'
+1701249699783	Encapsulate field 'maxPageItem'
+1701249703696	Encapsulate field 'totalPage'

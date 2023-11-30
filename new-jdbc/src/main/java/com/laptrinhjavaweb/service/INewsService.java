@@ -12,4 +12,6 @@ public interface INewsService {
 	NewsModel update(NewsModel updateNews);
 	
 	void delete(long[] ids);
+	
+	List<NewsModel> findAll();
 }

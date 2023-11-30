@@ -49,4 +49,9 @@ public class NewsService implements INewsService {
 
 	}
 
+	@Override
+	public List<NewsModel> findAll() {
+		return newsDao.findAll();
+	}
+
 }

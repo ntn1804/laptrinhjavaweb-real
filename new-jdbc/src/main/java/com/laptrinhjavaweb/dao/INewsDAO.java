@@ -14,4 +14,6 @@ public interface INewsDAO extends GenericDAO<NewsModel> {
 	void update(NewsModel updateNews);
 	
 	void delete(long id);
+	
+	List<NewsModel> findAll();
 }
