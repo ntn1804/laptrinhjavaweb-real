@@ -1,0 +1,7 @@
+package com.laptrinhjavaweb.sort;
+
+public class Sorter {
+	
+	private String sortName;
+	private String sortBy;
+}

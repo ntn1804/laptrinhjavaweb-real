@@ -26,7 +26,6 @@
 <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpUtils"/>
@@ -43,4 +42,9 @@
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.awt.print.Pageable"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.paging.PageRequest"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.sort.Sorter"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.paging.PageAble"/>
 </qualifiedTypeNameHistroy>

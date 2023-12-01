@@ -1,0 +1,23 @@
+package com.laptrinhjavaweb.paging;
+
+public class PageRequest implements PageAble {
+
+	@Override
+	public Integer getPage() {
+		
+		return null;
+	}
+
+	@Override
+	public Integer getOffset() {
+		
+		return null;
+	}
+
+	@Override
+	public Integer getLimit() {
+		
+		return null;
+	}
+
+}

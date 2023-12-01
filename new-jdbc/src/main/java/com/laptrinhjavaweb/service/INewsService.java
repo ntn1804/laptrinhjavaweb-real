@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.service;
 import java.util.List;
 
 import com.laptrinhjavaweb.model.NewsModel;
+import com.laptrinhjavaweb.paging.PageAble;
 
 public interface INewsService {
 	List<NewsModel> findByCategoryID(Long categoryId);
@@ -13,5 +14,7 @@ public interface INewsService {
 	
 	void delete(long[] ids);
 	
-	List<NewsModel> findAll();
+	List<NewsModel> findAll(PageAble pageAble);
+	
+	int getTotalItem();
 }

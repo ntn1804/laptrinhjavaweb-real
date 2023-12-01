@@ -1,9 +1,0 @@
-package com.laptrinhjavaweb.service;
-
-import java.util.List;
-
-import com.laptrinhjavaweb.dao.impl.NewsDAO;
-
-public interface INewsService {
-	public List<NewsDAO> findByCategoryID(Long categoryId);
-}

@@ -5,6 +5,7 @@ import java.util.List;
 import com.laptrinhjavaweb.dao.INewsDAO;
 import com.laptrinhjavaweb.mapper.NewsMapper;
 import com.laptrinhjavaweb.model.NewsModel;
+import com.laptrinhjavaweb.paging.PageAble;
 
 public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 
@@ -19,9 +20,9 @@ public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 		StringBuilder sql = new StringBuilder("INSERT INTO news (title, content,");
 		sql.append(" thumbnail, shortdescription, categoryid, createddate, createdby)");
 		sql.append(" VALUES(?, ?, ?, ?, ?, ?, ?)");
-		return insert(sql.toString(), newsModel.getTitle(), newsModel.getContent(), 
-				newsModel.getThumbNail(), newsModel.getShortDescription(), newsModel.getCategoryId(), 
-				newsModel.getCreatedDate(), newsModel.getCreatedBy());
+		return insert(sql.toString(), newsModel.getTitle(), newsModel.getContent(), newsModel.getThumbNail(),
+				newsModel.getShortDescription(), newsModel.getCategoryId(), newsModel.getCreatedDate(),
+				newsModel.getCreatedBy());
 	}
 
 	@Override
@@ -36,9 +37,10 @@ public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 		StringBuilder sql = new StringBuilder("UPDATE news SET title = ?, thumbnail = ?,");
 		sql.append(" shortdescription = ?, content = ?, categoryid = ?,");
 		sql.append(" createddate = ?, createdby = ?, modifieddate = ?, modifiedby = ? WHERE id =?");
-		update(sql.toString(), updateNews.getTitle(), updateNews.getThumbNail(),
-				updateNews.getShortDescription(), updateNews.getContent(), updateNews.getCategoryId(),
-				updateNews.getCreatedDate(), updateNews.getCreatedBy(), updateNews.getModifiedDate(), updateNews.getModifiedBy(), updateNews.getId());
+		update(sql.toString(), updateNews.getTitle(), updateNews.getThumbNail(), updateNews.getShortDescription(),
+				updateNews.getContent(), updateNews.getCategoryId(), updateNews.getCreatedDate(),
+				updateNews.getCreatedBy(), updateNews.getModifiedDate(), updateNews.getModifiedBy(),
+				updateNews.getId());
 	}
 
 	@Override
@@ -48,8 +50,20 @@ public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 	}
 
 	@Override
-	public List<NewsModel> findAll() {
-		String sql = "SELECT * FROM news";
-		return query(sql, new NewsMapper());
+	public List<NewsModel> findAll(PageAble pageAble) {
+		StringBuilder sql = new StringBuilder("SELECT * FROM news");
+		if (pageAble.getSorter() != null) {
+			sql.append(" ORDER BY " + pageAble.getSorter().getSortName() + " " + pageAble.getSorter().getSortBy() + "");
+		}
+		if (pageAble.getOffset() != null && pageAble.getLimit() != null) {
+			sql.append(" LIMIT " + pageAble.getOffset() + ", " + pageAble.getLimit() + "");
+		}
+		return query(sql.toString(), new NewsMapper());
+	}
+
+	@Override
+	public int getTotalItem() {
+		String sql = "SELECT count(*) FROM news";
+		return count(sql);
 	}
 }

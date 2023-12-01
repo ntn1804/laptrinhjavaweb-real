@@ -12,19 +12,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.model.NewsModel;
+import com.laptrinhjavaweb.paging.PageAble;
+import com.laptrinhjavaweb.paging.PageRequest;
 import com.laptrinhjavaweb.service.INewsService;
+import com.laptrinhjavaweb.sort.Sorter;
+import com.laptrinhjavaweb.utils.FormUtil;
 
 @WebServlet(urlPatterns = { "/admin-news" })
 public class NewsController extends HttpServlet {
 	private static final long serialVersionUID = 2686801510274002166L;
-	
+
 	@Inject
 	private INewsService newsService;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		NewsModel model = new NewsModel();
-		model.setListResult(newsService.findAll());
+		NewsModel model = FormUtil.toModel(NewsModel.class, request);
+		PageAble pageAble = new PageRequest(model.getPage(), model.getMaxPageItem(), new Sorter(model.getSortName(), model.getSortBy()));
+		model.setListResult(newsService.findAll(pageAble));
+		model.setTotalItem(newsService.getTotalItem());
+		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getMaxPageItem()));
 		request.setAttribute(SystemConstant.MODEL, model);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/admin/news/list.jsp");
 		rd.forward(request, response);
