@@ -17,4 +17,6 @@ public interface INewsService {
 	List<NewsModel> findAll(PageAble pageAble);
 	
 	int getTotalItem();
+	
+	NewsModel findOne(long id);
 }

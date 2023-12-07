@@ -60,4 +60,9 @@ public class NewsService implements INewsService {
 		return newsDao.getTotalItem();
 	}
 
+	@Override
+	public NewsModel findOne(long id) {
+		return newsDao.findOne(id);
+	}
+
 }

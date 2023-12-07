@@ -8,3 +8,7 @@
 1701744597309	Delete element
 1701763973590	Rename type 'AuthenticationFilter'
 1701763985788	Rename type 'Authorization'
+1701922410610	Encapsulate field 'categoryCode'
+1701922741335	Encapsulate field 'alert'
+1701922757965	Encapsulate field 'message'
+1701922762036	Encapsulate field 'type'
