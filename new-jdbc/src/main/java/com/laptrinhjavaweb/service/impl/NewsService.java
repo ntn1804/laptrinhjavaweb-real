@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.laptrinhjavaweb.dao.ICategoryDAO;
 import com.laptrinhjavaweb.dao.INewsDAO;
+import com.laptrinhjavaweb.model.CategoryModel;
 import com.laptrinhjavaweb.model.NewsModel;
 import com.laptrinhjavaweb.paging.PageAble;
 import com.laptrinhjavaweb.service.INewsService;
@@ -14,6 +16,8 @@ public class NewsService implements INewsService {
 
 	@Inject
 	private INewsDAO newsDao;
+	
+	@Inject ICategoryDAO categoryDao;
 
 	@Override
 	public List<NewsModel> findByCategoryID(Long categoryId) {
@@ -23,7 +27,8 @@ public class NewsService implements INewsService {
 	@Override
 	public NewsModel save(NewsModel newsModel) {
 		newsModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
-		newsModel.setCreatedBy("");
+		CategoryModel category = categoryDao.findOneByCode(newsModel.getCategoryCode());
+		newsModel.setCategoryId(category.getId());
 		Long newId = newsDao.save(newsModel);
 		return newsDao.findOne(newId);
 	}
@@ -34,7 +39,8 @@ public class NewsService implements INewsService {
 		updateNews.setCreatedBy(oldNews.getCreatedBy());
 		updateNews.setCreatedDate(oldNews.getCreatedDate());
 		updateNews.setModifiedDate(new Timestamp(System.currentTimeMillis()));
-		updateNews.setModifiedBy("");
+		CategoryModel category = categoryDao.findOneByCode(updateNews.getCategoryCode());
+		updateNews.setCategoryId(category.getId());
 		newsDao.update(updateNews);
 		return newsDao.findOne(updateNews.getId());
 	}
@@ -62,7 +68,10 @@ public class NewsService implements INewsService {
 
 	@Override
 	public NewsModel findOne(long id) {
-		return newsDao.findOne(id);
+		NewsModel newsModel = newsDao.findOne(id);
+		CategoryModel categoryModel = categoryDao.findOne(newsModel.getCategoryId());
+		newsModel.setCategoryCode(categoryModel.getCode());
+		return newsModel;
 	}
 
 }

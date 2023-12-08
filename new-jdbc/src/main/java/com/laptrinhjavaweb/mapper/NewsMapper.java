@@ -15,7 +15,7 @@ public class NewsMapper implements RowMapper<NewsModel> {
 			news.setTitle(resultSet.getString("title"));
 			news.setContent(resultSet.getString("content"));
 			news.setCategoryId(resultSet.getLong("categoryId"));
-			news.setThumbNail(resultSet.getString("thumbnail"));
+			news.setThumbnail(resultSet.getString("thumbnail"));
 			news.setShortDescription(resultSet.getString("shortdescription"));
 			news.setCreatedDate(resultSet.getTimestamp("createddate"));
 			news.setCreatedBy(resultSet.getString("createdby"));

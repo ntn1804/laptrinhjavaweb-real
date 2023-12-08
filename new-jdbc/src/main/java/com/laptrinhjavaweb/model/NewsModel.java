@@ -2,7 +2,7 @@ package com.laptrinhjavaweb.model;
 
 public class NewsModel extends AbstractModel<NewsModel> {
 	private String title;
-	private String thumbNail;
+	private String thumbnail;
 	private String shortDescription;
 	private String content;
 	private Long categoryId;
@@ -16,12 +16,12 @@ public class NewsModel extends AbstractModel<NewsModel> {
 		this.title = title;
 	}
 
-	public String getThumbNail() {
-		return thumbNail;
+	public String getThumbnail() {
+		return thumbnail;
 	}
 
-	public void setThumbNail(String thumbNail) {
-		this.thumbNail = thumbNail;
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 
 	public String getShortDescription() {
