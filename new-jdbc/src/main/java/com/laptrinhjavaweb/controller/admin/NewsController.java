@@ -38,17 +38,33 @@ public class NewsController extends HttpServlet {
 			model.setListResult(newsService.findAll(pageAble));
 			model.setTotalItem(newsService.getTotalItem());
 			model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getMaxPageItem()));
-			
 			view = "/views/admin/news/list.jsp";
 		} else if (model.getType().equals(SystemConstant.EDIT)) {
 			if (model.getId() != null) {
 				model = newsService.findOne(model.getId());
-			} else {
-				
 			}
 			request.setAttribute("categories", categoryService.findAll());
 			view = "/views/admin/news/edit.jsp";
-			
+		}
+		if(request.getParameter("message") != null) {
+			String messageResponse = "";
+			String alert = "";
+			String message = request.getParameter("message");
+			if(message.equals("insert_success")) {
+				messageResponse = "Insert success";
+				alert = "success";
+			} else if (message.equals("update_success")) {
+				messageResponse = "Update success";
+				alert = "success";
+			} else if (message.equals("delete_success")) {
+				messageResponse = "Delete success";
+				alert = "success";
+			} else if (message.equals("error_system")) {
+				messageResponse = "Error system";
+				alert = "danger";
+			}
+			request.setAttribute("messageResponse", messageResponse);
+			request.setAttribute("alert", alert);
 		}
 		request.setAttribute(SystemConstant.MODEL, model);
 		RequestDispatcher rd = request.getRequestDispatcher(view);

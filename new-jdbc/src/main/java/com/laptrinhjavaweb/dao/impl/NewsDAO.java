@@ -2,6 +2,8 @@ package com.laptrinhjavaweb.dao.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.laptrinhjavaweb.dao.INewsDAO;
 import com.laptrinhjavaweb.mapper.NewsMapper;
 import com.laptrinhjavaweb.model.NewsModel;
@@ -52,7 +54,7 @@ public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 	@Override
 	public List<NewsModel> findAll(PageAble pageAble) {
 		StringBuilder sql = new StringBuilder("SELECT * FROM news");
-		if (pageAble.getSorter() != null) {
+		if (pageAble.getSorter() != null && StringUtils.isNotBlank(pageAble.getSorter().getSortName()) && StringUtils.isNotBlank(pageAble.getSorter().getSortBy())) {
 			sql.append(" ORDER BY " + pageAble.getSorter().getSortName() + " " + pageAble.getSorter().getSortBy() + "");
 		}
 		if (pageAble.getOffset() != null && pageAble.getLimit() != null) {

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="APIurl" value="/api-admin-news" />
+<c:url var="APIurl" value="/api-admin-news"/>
+<c:url var="NewsURL" value="/admin-news"/>
 <html>
 
 <head>
@@ -27,7 +28,9 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<c:if test="${not empty messageResponse}">
-							<div class="alert alert-${alert}">${messageResponse}</div>
+							<div class="alert alert-${alert}">
+  								${messageResponse}
+							</div>
 						</c:if>
 						<form id="formSubmit">
 							<div class="form-group">
@@ -69,7 +72,7 @@
 								<label class="col-sm-3 control-label no-padding-right">Hình
 									đại diện</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="thumbnail" name="thumbnail" value="" />
+									<input type="text" class="form-control" id="thumbnail" name="thumbnail" value="${model.thumbnail}" />
 								</div>
 							</div>
 							<br /> <br />
@@ -86,8 +89,7 @@
 								<label class="col-sm-3 control-label no-padding-right">Nội
 									dung</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="content" name="content"
-										value="${model.content}" />
+									<textarea rows="" cols="" id="content" name="content" style="width: 1244px; height: 223px">${model.content}</textarea>
 								</div>
 							</div>
 							<br /> <br />
@@ -111,6 +113,11 @@
 		</div>
 	</div>
 	<script>
+		var editor ='';
+		$(document).ready(function(){
+			editor = CKEDITOR.replace('content');
+		});
+	
 		$('#btnAddOrUpdateNew').click(function (e) {
 			e.preventDefault();
 			var data = {};
@@ -134,10 +141,10 @@
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function (result) {
-					console.log(result);
+					window.location.href = "${NewsURL}?type=edit&id="+result.id+"&message=insert_success";
 				},
 				error: function (error) {
-					console.log(error);
+					window.location.href = "${NewsURL}?type=list&maxPageItem=2&page=1&message=error_system";
 				}
 			})
 		}
@@ -150,10 +157,10 @@
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function (result) {
-					console.log(result);
+					window.location.href = "${NewsURL}?type=edit&id="+result.id+"&message=update_success";
 				},
 				error: function (error) {
-					console.log(error);
+					window.location.href = "${NewsURL}?type=list&maxPageItem=2&page=1&message=error_system";
 				}
 			})
 		}
